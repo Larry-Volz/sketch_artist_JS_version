@@ -1,0 +1,106 @@
+html body {
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Revalia', cursive;
+    height: 100vh !important;
+    font-size: 1rem;
+    background-color: rgba(0,0,0,1.0) !important;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Audiowide', cursive;
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-family: 'Revalia', cursive;
+    color: green;
+    font-size: 1.5rem;
+}
+
+h4 {
+    text-align: center;
+    font-family: 'Audiowide', cursive;
+    font-size: 3.5rem;
+}
+
+h5 {
+    text-align: center;
+    font-family: 'Audiowide', cursive;
+    font-size: 2.5rem;
+}
+
+
+h6 {
+    text-align: center;
+    font-family: 'Audiowide', cursive;
+    font-size: 1.5rem;
+}
+
+.zoom {
+    font-size: 4rem;
+}
+.usp {
+    font-size: 1.2rem;
+
+}
+
+.card-title {
+    margin-bottom: 0.5rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.card-text {
+    text-align: center;
+}
+
+#sci-fi-bg-btn {
+    width: 80%;
+    height: auto;
+}
+
+img {
+    margin-bottom: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#sketch-pad {
+    color: green;
+    font-family: 'Audiowide', cursive;
+}
+
+p, label, #suspect-num, table {
+    color: white;
+    font-family: 'Audiowide', cursive;
+}
+
+.head {
+    /* height: 80vh; 
+    width: 60vw; */
+    position: relative !important;
+    top: 100 !important;
+    left: 100 !important;
+}
+
+.hair, .eyes, .ears, .nose, .chin, .lips, .FacialHair {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    /* height: 80vh;
+    width: 60vw; */
+}
+
+.mm-title {
+    background-color: black !important;
+}
+
+.blood-red {
+    background-color: #8a0303;
+}
+
+.alert:hover {
+    cursor: pointer;
+}

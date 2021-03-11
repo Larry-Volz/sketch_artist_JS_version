@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src = "https://code.jquery.com/jquery-3.1.1.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Revalia&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+   
+    <link rel="stylesheet" type="text/css" href="crimeLab.css" />
+
+    <title>Crime Lab</title>
+</head>
+<body>
+  <div class="container crime-lab-title">
+    <!-- <div class="row">
+        <div class="col">
+            <h1 class="text-light">Crime Lab</h1>
+        </div>
+    </div> -->
+    <!-- ------------------------------ TABS ---------------------------------------- -->
+    
+    <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item case-file-nav-item">
+    <a class="nav-link active" id="case-file-tab" data-toggle="tab" href="#case-file" role="tab" aria-controls="case-file" aria-selected="false"><i class="far fa-folder"></i> Case File</a>
+    </li>  
+    <li class="nav-item sketch-nav-item">
+    <a class="nav-link" id="sketch-tab" data-toggle="tab" href="#sketch" role="tab" aria-controls="sketch" aria-selected="true"><i class="fas fa-pencil-alt"></i> Sketch Artist</a>
+    </li>
+    <li class="nav-item DNA-nav-item">
+    <a class="nav-link" id="dna-tab" data-toggle="tab" href="#dna" role="tab" aria-controls="dna" aria-selected="false"><i class="fas fa-dna"></i> DNA</a>
+    </li>
+    <li class="nav-item fingerprint-nav-item">
+    <a class="nav-link" id="fingerprint-tab" data-toggle="tab" href="#fingerprint" role="tab" aria-controls="fingerprint" aria-selected="false"><i class="fas fa-fingerprint"></i> Fingerprinting</a>
+    </li>
+    <li class="nav-item witnesses-nav-item">
+    <a class="nav-link" id="witnesses-tab" data-toggle="tab" href="#witnesses" role="tab" aria-controls="witnesses" aria-selected="false"><i class="far fa-eye"></i> Witnesses</a>
+    </li>
+    <li class="nav-item ballistics-nav-item">
+    <a class="nav-link" id="ballistics-tab" data-toggle="tab" href="#ballistics" role="tab" aria-controls="ballistics" aria-selected="false"><i class="fas fa-bullseye"></i> Ballistics</a>
+    </li>
+    <li class="nav-item run-plates-nav-item">
+    <a class="nav-link" id="plates-tab" data-toggle="tab" href="#plates" role="tab" aria-controls="plates" aria-selected="false"><i class="fas fa-car"></i> Run plates</a>
+    </li>
+    <li class="nav-item run-records-nav-item">
+    <a class="nav-link" id="records-tab" data-toggle="tab" href="#records" role="tab" aria-controls="records" aria-selected="false"><i class="far fa-id-badge"></i> Criminal Records</a>
+    </li>
+    <li class="nav-item tracks-nav-item">
+    <a class="nav-link" id="tracks-tab" data-toggle="tab" href="#tracks" role="tab" aria-controls="tracks" aria-selected="false"><i class="fas fa-shoe-prints"></i> Tracks</a>
+    </li>
+    <li class="nav-item inventory-nav-item">
+    <a class="nav-link" id="inventory-tab" data-toggle="tab" href="#inventory" role="tab" aria-controls="inventory" aria-selected="false"><i class="fas fa-suitcase"></i> inventory</a>
+    </li>
+    
+    </ul> -->
+    
+    <!-- ------------------------------ TAB CONTENT ---------------------------------------- -->
+    
+    <!-- <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="case-file" role="tabpanel" aria-labelledby="case-file-tab">
+      <h5 class="card-title text-success mb-0 pb-0"><i class="far fa-folder-open"></i> Case File</h5>
+      <div class="card bg-dark mb-0 p-0">
+    
+        <div class="alert alert-primary" role="alert" id="case-basics-alert">
+          Case Basics
+        </div>
+          <div class="row file-content" id = "file-basics" style="display: none;">
+            <div class="col ml-2">
+              <p>Time of day: <span id="case-basic-tod">...to be assigned...</span></p>
+              <p>Exact or approximate location: <span id="case-basic-loc">...to be assigned...</span></p>
+              <p>Offence or occurrence: <span id="case-basic-crime"></span>...to be assigned...</p>
+              <p>Names and addresses of offenders, victims or witnesses</p>
+            </div>
+            <div class="starting-poi" id="starting-poi">...to be assigned...</div>
+          </div>
+        <div class="alert alert-success" role="alert" id="poi-alert">
+          Persons of Interest
+        </div>
+          <div class="row file-content" id="poi-details" style="display: none;">
+            <div class="col">
+              <table class = "ml-2" id="poi-table">
+                <tr>
+                  <th>Name</th>
+                  <th>id#</th>
+                  <th>Notes</th>
+                </tr>
+                <tr>
+                  <td>...to be assigned...</td>
+                  <td>...to be assigned...</td>
+                  <td>...to be assigned...</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          
+        </div> -->
+        <!-- <div class="tab-pane fade " id="sketch" role="tabpanel" aria-labelledby="sketch-tab"> -->
+          <h5 class="card-title text-success mb-0 pb-0">
+            <i class="fas fa-pencil-alt"></i>
+            A.I. Sketch Artist
+          </h5>
+          <div class="card-columns">
+          <!-- <div class="col-sm-5 "> -->
+          <div class="card bg-dark mb-0 p-0">
+              <div class="HEADS">
+                <img class="card-img-top mb-0 head" id= "head0" src="crimeLabPanel/PhotoFacePieces/Head-0.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head1" src="crimeLabPanel/PhotoFacePieces/Head-1.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head2" src="crimeLabPanel/PhotoFacePieces/Head-2.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head3" src="crimeLabPanel/PhotoFacePieces/Head-3.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head4" src="crimeLabPanel/PhotoFacePieces/Head-4.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head5" src="crimeLabPanel/PhotoFacePieces/Head-5.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head6" src="crimeLabPanel/PhotoFacePieces/Head-6.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head7" src="crimeLabPanel/PhotoFacePieces/Head-7.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head8" src="crimeLabPanel/PhotoFacePieces/Head-8.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head9" src="crimeLabPanel/PhotoFacePieces/Head-9.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head10" src="crimeLabPanel/PhotoFacePieces/Head-10.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head11" src="crimeLabPanel/PhotoFacePieces/Head-11.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head12" src="crimeLabPanel/PhotoFacePieces/Head-12.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head13" src="crimeLabPanel/PhotoFacePieces/Head-13.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 head hidden" id= "head14" src="crimeLabPanel/PhotoFacePieces/Head-14.png" alt="Sketch artist app">
+                
+              </div> 
+              <div class="EARS">
+                <img class="card-img-top mb-0 ears" id= "ears0" src="crimeLabPanel/PhotoFacePieces/Ears-0.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears1" src="crimeLabPanel/PhotoFacePieces/Ears-1.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears2" src="crimeLabPanel/PhotoFacePieces/Ears-2.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears3" src="crimeLabPanel/PhotoFacePieces/Ears-3.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears4" src="crimeLabPanel/PhotoFacePieces/Ears-4.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears5" src="crimeLabPanel/PhotoFacePieces/Ears-5.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears6" src="crimeLabPanel/PhotoFacePieces/Ears-6.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears7" src="crimeLabPanel/PhotoFacePieces/Ears-7.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears8" src="crimeLabPanel/PhotoFacePieces/Ears-8.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears9" src="crimeLabPanel/PhotoFacePieces/Ears-9.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears10" src="crimeLabPanel/PhotoFacePieces/Ears-10.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears11" src="crimeLabPanel/PhotoFacePieces/Ears-11.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears12" src="crimeLabPanel/PhotoFacePieces/Ears-12.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears13" src="crimeLabPanel/PhotoFacePieces/Ears-13.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 ears hidden" id= "ears14" src="crimeLabPanel/PhotoFacePieces/Ears-14.png" alt="Sketch artist app">
+                
+              </div>
+              <div class="HAIR">
+                <img class="card-img-top mb-0 hair       " id= "hair0" src="crimeLabPanel/PhotoFacePieces/Hair-0.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair1" src="crimeLabPanel/PhotoFacePieces/Hair-1.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair2" src="crimeLabPanel/PhotoFacePieces/Hair-2.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair3" src="crimeLabPanel/PhotoFacePieces/Hair-3.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair4" src="crimeLabPanel/PhotoFacePieces/Hair-4.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair5" src="crimeLabPanel/PhotoFacePieces/Hair-5.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair6" src="crimeLabPanel/PhotoFacePieces/Hair-6.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair7" src="crimeLabPanel/PhotoFacePieces/Hair-7.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair8" src="crimeLabPanel/PhotoFacePieces/Hair-8.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair9" src="crimeLabPanel/PhotoFacePieces/Hair-9.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair10" src="crimeLabPanel/PhotoFacePieces/Hair-10.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair11" src="crimeLabPanel/PhotoFacePieces/Hair-11.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair12" src="crimeLabPanel/PhotoFacePieces/Hair-12.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair13" src="crimeLabPanel/PhotoFacePieces/Hair-13.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 hair hidden" id= "hair14" src="crimeLabPanel/PhotoFacePieces/Hair-14.png" alt="Sketch artist app">
+                
+              </div>
+              <div class="EYES">
+                <img class="card-img-top mb-0 eyes       " id= "eyes0" src="crimeLabPanel/PhotoFacePieces/Eyes-0.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes1" src="crimeLabPanel/PhotoFacePieces/Eyes-1.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes2" src="crimeLabPanel/PhotoFacePieces/Eyes-2.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes3" src="crimeLabPanel/PhotoFacePieces/Eyes-3.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes4" src="crimeLabPanel/PhotoFacePieces/Eyes-4.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes5" src="crimeLabPanel/PhotoFacePieces/Eyes-5.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes6" src="crimeLabPanel/PhotoFacePieces/Eyes-6.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes7" src="crimeLabPanel/PhotoFacePieces/Eyes-7.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes8" src="crimeLabPanel/PhotoFacePieces/Eyes-8.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes9" src="crimeLabPanel/PhotoFacePieces/Eyes-9.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes10" src="crimeLabPanel/PhotoFacePieces/Eyes-10.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes11" src="crimeLabPanel/PhotoFacePieces/Eyes-11.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes12" src="crimeLabPanel/PhotoFacePieces/Eyes-12.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes13" src="crimeLabPanel/PhotoFacePieces/Eyes-13.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 eyes hidden" id= "eyes14" src="crimeLabPanel/PhotoFacePieces/Eyes-14.png" alt="Sketch artist app">
+              </div>
+              <div class="NOSES">
+                <img class="card-img-top mb-0 nose       " id= "nose0" src="crimeLabPanel/PhotoFacePieces/Nose-0.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose1" src="crimeLabPanel/PhotoFacePieces/Nose-1.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose2" src="crimeLabPanel/PhotoFacePieces/Nose-2.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose3" src="crimeLabPanel/PhotoFacePieces/Nose-3.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose4" src="crimeLabPanel/PhotoFacePieces/Nose-4.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose5" src="crimeLabPanel/PhotoFacePieces/Nose-5.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose6" src="crimeLabPanel/PhotoFacePieces/Nose-6.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose7" src="crimeLabPanel/PhotoFacePieces/Nose-7.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose8" src="crimeLabPanel/PhotoFacePieces/Nose-8.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose9" src="crimeLabPanel/PhotoFacePieces/Nose-9.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose10" src="crimeLabPanel/PhotoFacePieces/Nose-10.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose11" src="crimeLabPanel/PhotoFacePieces/Nose-11.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose12" src="crimeLabPanel/PhotoFacePieces/Nose-12.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose13" src="crimeLabPanel/PhotoFacePieces/Nose-13.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 nose hidden" id= "nose14" src="crimeLabPanel/PhotoFacePieces/Nose-14.png" alt="Sketch artist app">
+              </div>
+              <div class="LIPS">
+                <img class="card-img-top mb-0 lips       " id= "lips0" src="crimeLabPanel/PhotoFacePieces/Lips-0.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips1" src="crimeLabPanel/PhotoFacePieces/Lips-1.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips2" src="crimeLabPanel/PhotoFacePieces/Lips-2.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips3" src="crimeLabPanel/PhotoFacePieces/Lips-3.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips4" src="crimeLabPanel/PhotoFacePieces/Lips-4.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips5" src="crimeLabPanel/PhotoFacePieces/Lips-5.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips6" src="crimeLabPanel/PhotoFacePieces/Lips-6.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips7" src="crimeLabPanel/PhotoFacePieces/Lips-7.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips8" src="crimeLabPanel/PhotoFacePieces/Lips-8.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips9" src="crimeLabPanel/PhotoFacePieces/Lips-9.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips10" src="crimeLabPanel/PhotoFacePieces/Lips-10.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips11" src="crimeLabPanel/PhotoFacePieces/Lips-11.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips12" src="crimeLabPanel/PhotoFacePieces/Lips-12.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips13" src="crimeLabPanel/PhotoFacePieces/Lips-13.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 lips hidden" id= "lips14" src="crimeLabPanel/PhotoFacePieces/Lips-14.png" alt="Sketch artist app">
+                
+              </div>
+              <div class="FacialHair">
+                <img class="card-img-top mb-0 FacialHair" id= "FacialHair0" src="crimeLabPanel/PhotoFacePieces/FacialHair-0.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair1" src="crimeLabPanel/PhotoFacePieces/FacialHair-1.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair2" src="crimeLabPanel/PhotoFacePieces/FacialHair-2.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair3" src="crimeLabPanel/PhotoFacePieces/FacialHair-3.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair4" src="crimeLabPanel/PhotoFacePieces/FacialHair-4.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair5" src="crimeLabPanel/PhotoFacePieces/FacialHair-5.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair6" src="crimeLabPanel/PhotoFacePieces/FacialHair-6.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair7" src="crimeLabPanel/PhotoFacePieces/FacialHair-7.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair8" src="crimeLabPanel/PhotoFacePieces/FacialHair-8.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair9" src="crimeLabPanel/PhotoFacePieces/FacialHair-9.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair10" src="crimeLabPanel/PhotoFacePieces/FacialHair-10.png" alt="Sketch artist app">
+                <img class="card-img-top mb-0 FacialHair hidden" id= "FacialHair11" src="crimeLabPanel/PhotoFacePieces/FacialHair-11.png" alt="Sketch artist app">
+                
+              </div>
+          </div>
+
+            <!-- TEXT -->
+            <div class="card-body justify-content-center mb-0">
+              <!-- SLIDERS -->
+              <div class="row">
+                <div class="col-sm-4 m-2">
+                  <label for="head-slider" class="form-label">Head</label>
+                  <input type="range" class="form-range" id="head-slider" name="head-slider" min="0" max="14" value = "0"><br>
+                </div>
+                <div class="col-sm-4 m-2">
+                  <label for="hair-slider" class="form-label">Hair</label>
+                  <input type="range" class="form-range" id="hair-slider" name="hair-slider" min="0" max="14" value = "0"><br>
+                </div>    
+                
+              </div>
+              <div class="row mt-0">
+                <div class="col-sm-4 m-2">
+                  <label for="eyes-slider" class="form-label">Eyes</label>
+                  <input type="range" class="form-range" id="eyes-slider" name="eyes-slider" min="0" max="14" value = "0"><br>
+                </div>
+                <div class="col-sm-4 m-2">
+                  <label for="nose-slider" class="form-label">Nose</label>
+                  <input type="range" class="form-range" id="nose-slider" name="nose-slider" min="0" max="14" value = "0"><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4 m-1">
+                  <label for="ears-slider" class="form-label">Ears</label>
+                  <input type="range" class="form-range" id="ears-slider" name="ears-slider" min="0" max="14" value = "0"><br>
+                </div>
+                <div class="col-sm-4 m-1">
+                  <label for="lips-slider" class="form-label">Lips</label>
+                  <input type="range" class="form-range ml-3" id="lips-slider" name="lips-slider" min="0" max="14" value = "0"><br>
+                </div>
+                
+                <div class="col-sm-4 m-1">
+                  <label for="FacialHair-slider" class="form-label">Beard</label>
+                  <input type="range" class="form-range" id="FacialHair-slider" name="FacialHair-slider" min="0" max="11" value = "0"><br>
+                  <p class="mt-3">Suspect Number:<span id="suspect-num"></span></p>
+                </div>
+                
+              </div>
+        </div>
+      </div>
+    </div>
+        
+          <!-- </div> -->
+    </div>
+    <!-- <div class="tab-pane fade" id="dna" role="tabpanel" aria-labelledby="dna-tab">
+      <h5 class="card-title text-success mb-0 pb-0"><i class="fas fa-dna"></i> DNA Laboratory</h5>
+      <div class="card bg-dark mb-0 p-0">
+        <p>
+          You have no DNA evidence collected to test yet.
+        </p>
+        
+      </div>
+    </div>
+    <div class="tab-pane fade" id="fingerprint" role="tabpanel" aria-labelledby="fingerprint-tab">
+      <h5 class="card-title text-success mb-0 pb-0"><i class="fas fa-fingerprint"></i> Fingerprinting</h5>
+      <div class="card bg-dark mb-0 p-0">
+        <p>
+          You have not yet collected any fingerprints to analyze.
+          
+        </p>
+        
+      </div>
+    </div>
+    <div class="tab-pane fade" id="witnesses" role="tabpanel" aria-labelledby="witnesses-tab">
+      <h5 class="card-title text-success mb-0 pb-0"><i class="far fa-eye"></i> Witness statements</h5>
+      <div class="card bg-dark mb-0 p-0">
+          <p>
+              ... To Be Loaded on Game Start ...
+    
+          </p>
+          
+        </div>
+    </div>
+    <div class="tab-pane fade" id="ballistics" role="tabpanel" aria-labelledby="ballistics-tab">
+    <h5 class="card-title text-success mb-0 pb-0"><i class="fas fa-bullseye"></i> Ballistics</h5>
+    <div class="card bg-dark mb-0 p-0">
+        <p>
+            You have not yet collected any weapons or spent casing to analyze.  
+        </p>
+        
+      </div>
+    </div>
+    <div class="tab-pane fade" id="plates" role="tabpanel" aria-labelledby="plates-tab">
+    <h5 class="card-title text-success mb-0 pb-0"><i class="fas fa-car"></i> Run Plates</h5>
+    <div class="card bg-dark mb-0 p-0">
+      <form id="plates-form">
+          <label for="plates-form-input">Plate number to run (full or partial): </label>
+          <input type="text" name ="plates-form-input" id="plates-form-input" placeholder="">
+          <input type="submit" id="plates-submit-btn" class ="btn btn-primary ml-3">
+    
+      </form>
+      
+    </div>
+    </div>
+    <div class="tab-pane fade" id="records" role="tabpanel" aria-labelledby="records-tab">
+    <h5 class="card-title text-success mb-0 pb-0"><i class="far fa-id-badge"></i> Criminal records</h5>
+    <div class="card bg-dark mb-0 p-0">
+      <p>
+        <form id = "criminal-records-form">
+          <label for="cr-fname">First name </label>
+          <input type="text" name ="cr-fname" id="cr-fname" placeholder="">
+          <label for="cr-lname">Last name </label>
+          <input type="text" name ="cr-lname" id="cr-lname" placeholder="">
+          <input type="submit" id="cr-submit-btn" class ="btn btn-primary ml-3">
+    
+      </form>
+    
+      </p>
+      
+    </div>
+    </div>
+    <div class="tab-pane fade" id="tracks" role="tabpanel" aria-labelledby="tracks-tab">
+    <h5 class="card-title text-success mb-0 pb-0"><i class="fas fa-shoe-prints"></i> Tracks</h5>
+    <div class="card bg-dark mb-0 p-0">
+        <p>
+            You have not found any tracks yet.
+    
+        </p>
+        
+      </div>
+    </div>
+    <div class="tab-pane fade" id="inventory" role="tabpanel" aria-labelledby="inventory-tab">
+    <h5 class="card-title text-success mb-0 pb-0"><i class="fas fa-suitcase"></i> Inventory</h5>
+    <div class="card bg-dark mb-0 p-0">
+        <p>
+            Your inventory is empty.
+    
+        </p>
+        
+      </div>
+    </div>
+    
+    
+    </div> -->
+    
+    <!-- ------------------------- END TABS --------------------------------------- -->
+    
+    
+    
+    <!-- </div> -->
+
+    <!-- ---------------------------------------------------------------------------------- -->
+    
+      <!-- ---------------------------------------------------------------------------------- -->
+    <script src="crimeLabPanel/crimeLabPanel.js"></script>
+</body>
+
+    
+</html>
