@@ -175,6 +175,16 @@ $("#FacialHair-slider").on("input",(e)=>{
   $('#suspect-num').text(makeSuspectNum());
 });
 
+$('#choose').on('click', (e)=>{
+  if (makeSuspectNum() == "1131150"){
+    // $('#result').html('<style="font-size: .8rem; color: white;">YOU\'VE CRACKED THE CASE!  WELL DONE SHERLOCK!!</style>')
+    alert("YOU'VE CRACKED THE CASE!  WELL DONE SHERLOCK!!");
+  } else {
+    // $('#result').html('<style="font-size: .8rem; color: red;">You have sent an innocent man to jail. Tsk tsk and for shame!')
+    alert("You have sent an innocent man to jail. Tsk tsk and for shame!")
+  }
+})
+
 
 
 function makeSuspectNum(){

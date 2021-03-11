@@ -104,3 +104,7 @@ p, label, #suspect-num, table {
 .alert:hover {
     cursor: pointer;
 }
+
+#choose {
+    cursor: pointer;
+}
