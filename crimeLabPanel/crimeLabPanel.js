@@ -1,7 +1,24 @@
 $(function(){
+
+  setInterval(()=>{
+    if ($('#Faniel').attr("src") == "OriginalFaces/Faniel_mugshot.jpg") {
+      $('#Faniel').fadeOut(1000, ()=>{
+          $('#Faniel').attr("src", "OriginalFaces/Faniel_crowbar_closer800x1020.jpg")
+      });
+      $('#Faniel').fadeIn(1000);
+    } else {
+      $('#Faniel').fadeOut(1000, ()=>{
+        $('#Faniel').attr("src", "OriginalFaces/Faniel_mugshot.jpg")
+      })
+      $('#Faniel').fadeIn(1000);
+    }
+  }, 3000);
+
+
     window.addEventListener('beforeunload', (event) => { 
         event.preventDefault(); // Google Chrome requires returnValue to be set. 	event.returnValue = ''; 
     }); 
+    
 /* ----------------------- MASTERMIND CONTROL PANEL CODE ---------------------------*/ 
 
 // 
